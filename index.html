@@ -8,7 +8,7 @@
     <title>Pizza Order Form</title>
   </head>
   <body>
-    <div class="container">
+    <div  id="order" class="container">
       <h1>Pizza Order Form</h1>
 
       <p>Choose from multiple toppings, crusts and sizes your favorite pizza.</p>
@@ -17,24 +17,23 @@
         <h2>Please select the size</h2>
         <select id="size">
           <option value="eight">8 inches</option>
-          <option value="twelve">Twelve inches</option>
+          <option value="twelve">12 inches</option>
         </select>
         <h2>Please select the topping</h2>
         <select id="topping">
-          <option value="cheese">Chesse</option>
+          <option value="cheese">Cheese</option>
           <option value="pepperoni">Pepperoni</option>
           <option value="vegeterian">Vegeterian</option>
         </select>
-
         <br>
         <br>
-        <button type="submit" class="btn btn-default">See your pizza price</button>
-    </form>
-
-
-      <div id="result">
-        <p>Your selection of pizza will be <span id="price"></span>. Bon Appetit!</p>
-      </div>
+        <button id="submit" type="submit" class="btn btn-danger">See your pizza price</button>
+      </form>
+    </div>
+    <div class="container" id="result">
+      <p>Your selection of pizza will be $<span id="price"></span>.
+        <br>
+        Bon Appetit!</p>
     </div>
   </body>
 </html>

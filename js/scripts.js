@@ -6,34 +6,40 @@ function Pizza (size, topping) {
   this.topping = topping;
 }
 
-var cheese = new Pizza("8", "cheese");
-var pepperoni = new Pizza("8", "pepperoni");
-var vegeterian = new Pizza ("8", "veggies");
-
-Pizza.prototype.selection = function () {
-  return this.size +  " " + this.topping;
-}
-
-cheese.selection();
-pepperoni.selection();
-vegeterian.selection();
-
 Pizza.prototype.cost = function() {
-  if (Pizza === cheese) {
-    return 12;
+  var price = 0;
+  if (this.size === "eight") {
+    price = 10;
   }
-  if (Pizza === pepperoni) {
-    return 14;
+  if (this.size === "twelve") {
+    price = 12;
+  }
+  if (this.topping === "cheese") {
+  price += 0;
+  }
+  if (this.topping === "pepperoni") {
+  price += 2;
   }
 
-  if (Pizza === vegeterian) {
-    return 15;
+    if (this.topping === "vegeterian") {
+    price += 3;
+  }
+  return price;
 }
 
 //User Interface Logic
 $(document).ready(function() {
-  $("#roll1").click(function(event) {
+  $("#submit").click(function(event) {
     event.preventDefault();
-    var roll1=rollDice();
+    var sizeInput = $("select#size").val();
+    var toppingInput = $("select#topping").val();
+    var cost = 0;
+    var newPizza = new Pizza (sizeInput, toppingInput);
+    var result = newPizza.cost();
+
+    $("#price").text(result);
+    $("#order").fadeOut();
+    $("#result").fadeIn();
+
   });
 });
